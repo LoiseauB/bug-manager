@@ -28,7 +28,7 @@ const EditBugForm = () => {
         </select><br/>
         <label>Description du bug:</label><br/>
         <input type="text" onChange={(e) => setDesc(e.target.value)}/><br/>
-        <button type="submit">Signaler le bug</button>
+        <button type="submit">Modifier le bug</button>
       </form>
     </>
   )
