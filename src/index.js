@@ -3,11 +3,50 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {RouterProvider, createBrowserRouter} from 'react-router-dom';
+import ShowBugs from './components/ShowBugs';
+import CreateBugForm from './components/CreateBugForm';
+import EditBugForm from './components/EditBugForm';
+import DeleteBug from './components/DeleteBug';
+import ResolveBugForm from './components/ResolveBugForm';
+
+const router = createBrowserRouter([
+  {
+    path:'/',
+    element: <App />,
+    children:[
+      {
+        path:'/',
+        element:<ShowBugs />
+      },
+      {
+        path:'/bugs',
+        element:<ShowBugs />
+      },
+      {
+        path:'/bugs/create',
+        element:<CreateBugForm />
+      },
+      {
+        path:'/bugs/resolve',
+        element:<ResolveBugForm />
+      },
+      {
+        path:'/bugs/edit',
+        element:<EditBugForm />
+      },
+      {
+        path:'/bugs/delete',
+        element:<DeleteBug />
+      },
+    ]
+  }
+])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+   <RouterProvider router={router} />
   </React.StrictMode>
 );
 
