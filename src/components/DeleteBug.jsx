@@ -1,15 +1,19 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteBug } from "../redux/actions";
+import { useNavigate } from "react-router-dom";
 
 const DeleteBug = () => {
   const [id, setId] = useState(null);
   const dispatch = useDispatch();
   const bugs = useSelector(state => state.bugs);
+  const navigate = useNavigate();
+
 
   const handleSubmit = e =>{
     e.preventDefault();
     dispatch(deleteBug(id));
+    navigate('/bugs');
   }
 
   return(
